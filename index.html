@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello, World! • Day 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+  <!-- Interactive Canvas Background -->
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-text">Day 01 <span class="badge">Hello World</span></span>
+      </div>
+
+      <div class="nav-controls">
+        <button id="soundToggle" class="icon-btn" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+          <span class="icon">🔊</span>
+        </button>
+        <div class="theme-picker">
+          <button class="theme-btn active" data-set-theme="dark" title="Dark Mode">🌙</button>
+          <button class="theme-btn" data-set-theme="light" title="Light Mode">☀️</button>
+          <button class="theme-btn" data-set-theme="aurora" title="Aurora Glow">🌌</button>
+          <button class="theme-btn" data-set-theme="cyber" title="Cyberpunk">⚡</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Hero -->
+    <main class="hero">
+      <div class="hero-chip" id="timeGreeting">
+        <span class="pulse-icon">●</span> <span id="greetingText">Welcome, Creator</span>
+      </div>
+
+      <div class="headline-container">
+        <h1 class="headline" id="mainGreeting" title="Click me to change language!">
+          <span class="text-gradient" id="greetingWord">Hello, World!</span>
+          <span class="wave-emoji" id="waveEmoji">👋</span>
+        </h1>
+        <p class="language-hint">
+          <span class="hint-tag" id="langName">English</span> • click text or button to switch language
+        </p>
+      </div>
+
+      <div class="typewriter-container">
+        <span class="terminal-prefix">&gt; </span>
+        <span class="typewriter-text" id="typewriter"></span>
+        <span class="cursor">|</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-row">
+        <button id="confettiBtn" class="btn btn-primary">
+          <span class="btn-icon">🎉</span>
+          <span>Say Hello Back!</span>
+          <span class="counter-badge" id="clickCount">0</span>
+        </button>
+
+        <button id="cycleLangBtn" class="btn btn-secondary">
+          <span class="btn-icon">🌐</span>
+          <span>Translate</span>
+        </button>
+
+        <button id="inspireBtn" class="btn btn-tertiary">
+          <span class="btn-icon">💡</span>
+          <span>Inspire Me</span>
+        </button>
+      </div>
+
+      <!-- Live Dynamic Quote / Message Banner -->
+      <div class="quote-card" id="quoteCard">
+        <p class="quote-text" id="quoteText">"Every grand software journey starts with a single Hello, World."</p>
+        <span class="quote-author" id="quoteAuthor">— The Developer's Creed</span>
+      </div>
+
+      <!-- Interactive Playground Grid -->
+      <section class="playground-grid">
+        <!-- Interactive Card 1: Sound Chimes -->
+        <div class="card sound-card">
+          <div class="card-header">
+            <h3>🎹 Musical Keys</h3>
+            <span class="card-subtitle">Tap or press keys</span>
+          </div>
+          <div class="piano-keys">
+            <button class="piano-key" data-note="261.63" data-key="H"><span>H</span><small>Do</small></button>
+            <button class="piano-key" data-note="293.66" data-key="E"><span>E</span><small>Re</small></button>
+            <button class="piano-key" data-note="329.63" data-key="L"><span>L</span><small>Mi</small></button>
+            <button class="piano-key" data-note="392.00" data-key="O"><span>O</span><small>Sol</small></button>
+            <button class="piano-key" data-note="440.00" data-key="W"><span>W</span><small>La</small></button>
+          </div>
+          <p class="card-tip">Tip: Press keys <kbd>H</kbd> <kbd>E</kbd> <kbd>L</kbd> <kbd>O</kbd> <kbd>W</kbd> on your keyboard!</p>
+        </div>
+
+        <!-- Interactive Card 2: Day 1 Checklist -->
+        <div class="card checklist-card">
+          <div class="card-header">
+            <h3>✅ Day 1 Quest</h3>
+            <span class="card-subtitle" id="questProgress">2/4 Done</span>
+          </div>
+          <ul class="checklist" id="checklist">
+            <li class="checked">
+              <label>
+                <input type="checkbox" checked data-task="1">
+                <span class="custom-check"></span>
+                <span>Initialize project workspace</span>
+              </label>
+            </li>
+            <li class="checked">
+              <label>
+                <input type="checkbox" checked data-task="2">
+                <span class="custom-check"></span>
+                <span>Say "Hello, World!" to the universe</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" data-task="3">
+                <span class="custom-check"></span>
+                <span>Click the confetti button 5 times</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" data-task="4">
+                <span class="custom-check"></span>
+                <span>Play a melody with keyboard keys</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Interactive Card 3: Live Stats -->
+        <div class="card stats-card">
+          <div class="card-header">
+            <h3>⏱️ Live Session</h3>
+            <span class="card-subtitle">Realtime metrics</span>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="metric-val" id="clockTime">00:00:00</span>
+              <span class="metric-lbl">Local Time</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-val" id="sessionTimer">0s</span>
+              <span class="metric-lbl">Time in App</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-val" id="particleCount">60</span>
+              <span class="metric-lbl">Living Sparks</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built with ❤️ for <strong>Day 1</strong> • Ready to build something extraordinary?</p>
+      <div class="footer-links">
+        <span class="status-indicator"><span class="dot-live"></span> System Online</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
